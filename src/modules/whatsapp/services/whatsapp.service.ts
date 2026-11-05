@@ -1,8 +1,5 @@
 // src/modules/whatsapp/services/whatsapp.service.ts
 import axios from 'axios';
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
 
 export class WhatsAppService {
   private accessToken: string;
@@ -35,10 +32,9 @@ export class WhatsAppService {
         }
       );
       
-      console.log(`✅ Mensaje enviado a ${to}`);
       return response.data;
     } catch (error: any) {
-      console.error('❌ Error al enviar mensaje:', error.response?.data || error.message);
+      console.error('Error al enviar mensaje de WhatsApp:', error?.message);
       throw error;
     }
   }
@@ -74,7 +70,7 @@ export class WhatsAppService {
       
       return response.data;
     } catch (error: any) {
-      console.error('❌ Error al enviar botones:', error.response?.data || error.message);
+      console.error('Error al enviar botones de WhatsApp:', error?.message);
       throw error;
     }
   }
@@ -120,7 +116,7 @@ export class WhatsAppService {
       
       return response.data;
     } catch (error: any) {
-      console.error('❌ Error al enviar lista:', error.response?.data || error.message);
+      console.error('Error al enviar lista de WhatsApp:', error?.message);
       throw error;
     }
   }

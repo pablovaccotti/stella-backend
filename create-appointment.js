@@ -19,9 +19,9 @@ async function main() {
     // Crear la cita
     const appointment = await prisma.appointment.create({
       data: {
-        customerName: 'Carlos Lopez',
-        customerPhone: '1156789012',
-        customerEmail: 'carlos@email.com',
+        customerName: 'Cliente de Prueba',
+        customerPhone: '+5400000000',
+        customerEmail: 'test@example.com',
         serviceId: service.id,
         dateTime: new Date('2026-05-20T10:00:00'),
         durationMins: service.durationMins,

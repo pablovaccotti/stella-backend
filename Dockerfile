@@ -32,10 +32,12 @@ RUN apt-get update && apt-get install -y openssl
 WORKDIR /app
 
 # Copiar dependencias y código compilado
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/prisma ./prisma
-COPY --from=builder /app/dist ./dist
+COPY --from=builder --chown=node:node /app/node_modules ./node_modules
+COPY --from=builder --chown=node:node /app/package*.json ./
+COPY --from=builder --chown=node:node /app/prisma ./prisma
+COPY --from=builder --chown=node:node /app/dist ./dist
+
+USER node
 
 EXPOSE 3000
 
